@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_beds/common/theme/app_colors.dart';
@@ -6,8 +7,8 @@ import 'package:smart_beds/common/widgets/curve.dart';
 class PlantCard extends StatelessWidget {
   const PlantCard({
     required this.plantType,
+    required this.bedId,
     required this.plantName,
-    required this.plantPrice,
     required this.image,
     required this.onTap,
     Key? key,
@@ -15,8 +16,8 @@ class PlantCard extends StatelessWidget {
 
   final String plantType;
   final String plantName;
-  final double plantPrice;
-  final AssetImage image;
+  final String image;
+  final int bedId;
   final Function() onTap;
 
   @override
@@ -43,10 +44,16 @@ class PlantCard extends StatelessWidget {
             child: Container(
               constraints: BoxConstraints(maxWidth: 124.w, maxHeight: 240.h),
               child: Hero(
-                tag: plantName,
-                child: CircleAvatar(
-                  radius: 70.r,
-                  backgroundImage: image,
+                tag: bedId,
+                child: CachedNetworkImage(
+                  imageUrl: image,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  imageBuilder: (context, imageProvider) => CircleAvatar(
+                    radius: 70.r,
+                    backgroundImage: imageProvider,
+                  ),
                 ),
               ),
             ),
@@ -66,33 +73,15 @@ class PlantCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Flexible(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            plantType,
-                            style: const TextStyle(
-                              color: kDarkGreenColor,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          SizedBox(height: 2.h),
-                          Expanded(
-                            child: Text(
-                              plantName,
-                              overflow: TextOverflow.fade,
-                              maxLines: 1,
-                              softWrap: false,
-                              style: TextStyle(
-                                color: kDarkGreenColor,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ],
+                    Text(
+                      plantName,
+                      overflow: TextOverflow.fade,
+                      maxLines: 1,
+                      softWrap: false,
+                      style: TextStyle(
+                        color: kDarkGreenColor,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Container(
@@ -106,7 +95,7 @@ class PlantCard extends StatelessWidget {
                       ),
                       constraints: BoxConstraints(maxWidth: 90.w),
                       child: Text(
-                        '3x',
+                        plantType,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         softWrap: false,

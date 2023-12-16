@@ -27,7 +27,7 @@ class AuthenticationButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         label,
-        style: GoogleFonts.poppins(fontSize: 16.0),
+        style: GoogleFonts.poppins(fontSize: 16.0, color: Colors.white),
       ),
     );
   }

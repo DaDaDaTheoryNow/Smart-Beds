@@ -1,25 +1,42 @@
 class Plant {
-  final String plantType;
-  final String plantName;
-  final double plantPrice;
-  final String image;
-  final double stars;
-  final PlantMetrics metrics;
+  final String name;
+  final String type;
+  final String picture;
+  final String description;
+  final double recommendedHumidity;
+  final int recommendedLightLevel;
+  final int id;
 
   Plant({
-    required this.plantType,
-    required this.plantName,
-    required this.plantPrice,
-    required this.image,
-    required this.stars,
-    required this.metrics,
+    required this.name,
+    required this.type,
+    required this.picture,
+    required this.description,
+    required this.recommendedHumidity,
+    required this.recommendedLightLevel,
+    required this.id,
   });
-}
 
-class PlantMetrics {
-  final String height;
-  final String humidity;
-  final String width;
+  factory Plant.fromJson(Map<String, dynamic> json) {
+    return Plant(
+      name: json['name'] ?? '',
+      type: json['type'] ?? '',
+      picture: json['picture'] ?? '',
+      description: json['description'] ?? '',
+      recommendedHumidity: json['recommended_humidity'] ?? 0,
+      recommendedLightLevel: json['recommended_light_level'] ?? 0,
+      id: json['id'],
+    );
+  }
 
-  PlantMetrics(this.height, this.humidity, this.width);
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'type': type,
+      'picture': picture,
+      'description': description,
+      'recommended_humidity': recommendedHumidity,
+      'recommended_light_level': recommendedLightLevel,
+    };
+  }
 }
