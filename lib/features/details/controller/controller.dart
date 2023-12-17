@@ -4,16 +4,18 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:smart_beds/common/models/bed.dart';
 import 'package:smart_beds/common/models/plant_data.dart';
+import 'package:smart_beds/common/util/dialog/app_dialog.dart';
 import 'package:smart_beds/features/details/controller/state.dart';
-import 'package:smart_beds/features/home/controller/controller.dart';
+import 'package:smart_beds/features/beds/controller/controller.dart';
 import 'package:smart_beds/features/shared/controller.dart';
 
 class DetailsController extends GetxController {
   final state = DetailsState();
-  final homeController = Get.find<HomeController>();
+  final homeController = Get.find<BedsController>();
   final sharedState = Get.find<SharedController>().state;
 
   final dio = Dio();
+  final appDialog = AppDialog();
   late Timer _timer;
 
   Future<void> updateBedData() async {
@@ -33,17 +35,17 @@ class DetailsController extends GetxController {
 
       state.bed = updatedBed;
 
-      final indexOfBedInHomePage = homeController.state.beds
+      final indexOfBedInHomePage = homeController.state.userBeds
           .indexWhere((bed) => bed.id == state.bed!.id);
       if (indexOfBedInHomePage != -1) {
-        homeController.state.beds[indexOfBedInHomePage] = updatedBed;
+        homeController.state.userBeds[indexOfBedInHomePage] = updatedBed;
       }
     }
   }
 
   Future<void> waterBed() async {
     final url =
-        'https://hackaton15.onrender.com/bed/water-soil/${state.bed!.id}?humidity_percent=50';
+        'https://hackaton15.onrender.com/bed/water-soil/${state.bed!.id}?humidity_percent=${state.bed!.plant.recommendedHumidity}';
 
     state.isHumidityLoading = true;
 
@@ -65,6 +67,7 @@ class DetailsController extends GetxController {
     final url =
         'https://hackaton15.onrender.com/bed/delete-bed-by-id/${state.bed!.id}';
 
+    appDialog.loading();
     final response = await dio.delete(
       url,
       options: Options(
@@ -74,8 +77,11 @@ class DetailsController extends GetxController {
       ),
     );
 
+    appDialog.close();
+
     if (response.statusCode == 200) {
-      homeController.state.beds.removeWhere(((bed) => bed.id == state.bed!.id));
+      homeController.state.userBeds
+          .removeWhere(((bed) => bed.id == state.bed!.id));
       homeController.getUserBeds();
       Get.back();
     }
@@ -94,7 +100,7 @@ class DetailsController extends GetxController {
 
   @override
   void onInit() async {
-    state.bed = Get.arguments[0];
+    state.bed = Get.arguments[0] as Bed;
 
     listenBedChanges();
     super.onInit();

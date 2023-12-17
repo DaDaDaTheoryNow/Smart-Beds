@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide FormData, Response;
 import 'package:smart_beds/common/pages.dart';
+import 'package:smart_beds/common/util/dialog/app_dialog.dart';
 import 'package:smart_beds/common/util/shared_preferences/user_prefs.dart';
 import 'package:smart_beds/features/sign/controller/state.dart';
 
@@ -10,6 +11,7 @@ class SignController extends GetxController {
   final userPrefs = UserPrefs();
 
   final Dio dio = Dio();
+  final appDialog = AppDialog();
 
   void setSignStatus(SignStatus signStatus) {
     state.signStatus = signStatus;
@@ -24,6 +26,7 @@ class SignController extends GetxController {
     };
 
     FocusManager.instance.primaryFocus?.unfocus();
+    appDialog.loading();
     final response = await dio.post(
       url,
       options: Options(
@@ -32,6 +35,8 @@ class SignController extends GetxController {
       ),
       data: FormData.fromMap(data),
     );
+
+    appDialog.close();
 
     if (response.statusCode == 200 && response.data is Map<String, dynamic>) {
       debugPrint("success sign in");
@@ -49,6 +54,7 @@ class SignController extends GetxController {
     };
 
     FocusManager.instance.primaryFocus?.unfocus();
+    appDialog.loading();
     Response response = await dio.post(
       url,
       options: Options(
@@ -60,6 +66,8 @@ class SignController extends GetxController {
       ),
       data: data,
     );
+
+    appDialog.close();
 
     if (response.statusCode == 200 && response.data is Map<String, dynamic>) {
       debugPrint("success sign up");

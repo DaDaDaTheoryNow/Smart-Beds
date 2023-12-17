@@ -181,6 +181,11 @@ class PlantDetailsPage extends GetView<DetailsController> {
                                   icon: Icons.light,
                                 ),
                               ),
+                              PlantMetricsWidget(
+                                title: 'Soil Type',
+                                value: controller.state.bed!.soilType,
+                                icon: Icons.type_specimen,
+                              ),
                             ],
                           ),
                         ),

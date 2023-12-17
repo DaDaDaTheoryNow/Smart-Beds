@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_beds/common/models/bed.dart';
 import 'package:smart_beds/common/pages.dart';
 import 'package:smart_beds/common/theme/app_colors.dart';
-import 'package:smart_beds/features/home/view/widgets/plant_card.dart';
+import 'package:smart_beds/features/beds/view/widgets/plant_card.dart';
 
 class BedSliver extends StatelessWidget {
   final String bedTitle;

@@ -10,6 +10,9 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     required this.keyboardType,
     required this.onChanged,
+    this.isSend = false,
+    this.textEditingController,
+    this.onSendPressed,
     Key? key,
   }) : super(key: key);
 
@@ -18,12 +21,17 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final Function(String) onChanged;
+  final bool isSend;
+  final VoidCallback? onSendPressed;
+  final TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
       child: TextField(
+        controller:
+            (textEditingController != null) ? textEditingController : null,
         cursorColor: kDarkGreenColor,
         obscureText: obscureText,
         keyboardType: keyboardType,
@@ -41,6 +49,19 @@ class CustomTextField extends StatelessWidget {
             size: 24.0,
             color: kDarkGreenColor,
           ),
+          suffixIcon: isSend
+              ? Padding(
+                  padding: EdgeInsets.only(right: 5.w),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.send,
+                      color: kDarkGreenColor,
+                      size: 24.0,
+                    ),
+                    onPressed: onSendPressed,
+                  ),
+                )
+              : null,
           hintText: hintText,
           hintStyle: GoogleFonts.poppins(
             color: kDarkGreenColor,
