@@ -86,7 +86,7 @@ class ThreadsController extends GetxController {
     }
 
     final url =
-        'https://hackaton15.onrender.com/thread/get-thread-by-id-with-messages/${threadId}';
+        'https://hackaton15.onrender.com/thread/get-thread-by-id-with-messages/$threadId';
 
     final response = await dio.get(
       url,
