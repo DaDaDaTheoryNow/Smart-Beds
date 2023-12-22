@@ -10,8 +10,8 @@
 > In this project, I created a Smart Beds App for monitoring your garden beds
 
 **Server**
-- FastApi(https://hackaton15.onrender.com/docs)
-- Pyhton(https://github.com/kirill221100/hackathon151223)
+- FastApi (https://hackaton15.onrender.com/docs)
+- Pyhton (https://github.com/kirill221100/hackathon151223)
 - SQLite
 
 **Client**
@@ -23,9 +23,13 @@
 - Layered Architecture
 
 ## Screenshots
-![beautiful](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/b02c8fbd-ab91-44db-a76b-feb66d665131)
-![controll](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/5c287abb-ad76-4ad9-84d4-7b9ef5e22c58)
-![communicate](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/683a3fde-bf5b-4510-8383-1c2bf7ba82d0)
+- ![beautiful](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/b02c8fbd-ab91-44db-a76b-feb66d665131)
+
+
+- ![controll](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/5c287abb-ad76-4ad9-84d4-7b9ef5e22c58)
+
+
+- ![communicate](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/683a3fde-bf5b-4510-8383-1c2bf7ba82d0)
 
 ## Install
 
