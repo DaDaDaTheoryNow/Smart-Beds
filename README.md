@@ -23,13 +23,14 @@
 - Layered Architecture
 
 ## Screenshots
-- ![beautiful](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/b02c8fbd-ab91-44db-a76b-feb66d665131)
+- Beautiful UI
+![beautiful](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/b02c8fbd-ab91-44db-a76b-feb66d665131)
 
+- Controll Your Beds
+![controll](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/5c287abb-ad76-4ad9-84d4-7b9ef5e22c58)
 
-- ![controll](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/5c287abb-ad76-4ad9-84d4-7b9ef5e22c58)
-
-
-- ![communicate](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/683a3fde-bf5b-4510-8383-1c2bf7ba82d0)
+- Communicate with people LIKE YOU in Threads
+![communicate](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/683a3fde-bf5b-4510-8383-1c2bf7ba82d0)
 
 ## Install
 
