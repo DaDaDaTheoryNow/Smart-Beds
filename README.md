@@ -11,7 +11,7 @@
 
 **Server**
 - FastApi (https://hackaton15.onrender.com/docs)
-- Pyhton (https://github.com/kirill221100/hackathon151223)
+- Python (https://github.com/kirill221100/hackathon151223)
 - SQLite
 
 **Client**
