@@ -32,7 +32,7 @@ class HomePage extends GetView<HomeController> {
               },
               icon: const Icon(Icons.add, color: kDarkGreenColor),
               label: const Text(
-                "Message",
+                "Thread",
                 style: TextStyle(color: kDarkGreenColor),
               ),
             )),
