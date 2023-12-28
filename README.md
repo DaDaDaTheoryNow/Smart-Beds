@@ -12,7 +12,7 @@
 **Server**
 - FastApi (https://hackaton15.onrender.com/docs)
 - Python (https://github.com/kirill221100/hackathon151223)
-- SQLite
+- PostgreSQL
 
 **Client**
 - Flutter
