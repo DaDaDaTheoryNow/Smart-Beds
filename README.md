@@ -6,9 +6,9 @@
   </a>
 </p>
 
-## Technologies
 > In this project, I created a Smart Beds App for monitoring your garden beds
 
+## Technologies
 **Server**
 - FastApi (https://hackaton15.onrender.com/docs)
 - Python (https://github.com/kirill221100/hackathon151223)
