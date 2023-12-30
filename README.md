@@ -29,8 +29,6 @@
 - #### Control Your Beds
 ![control](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/ecab9908-46b8-4346-9bde-b9acfaaabbe9)
 
-
-
 - #### Communicate with people LIKE YOU in Threads
 ![communicate](https://github.com/DaDaDaTheoryNow/Smart-Beds/assets/105795587/683a3fde-bf5b-4510-8383-1c2bf7ba82d0)
 
